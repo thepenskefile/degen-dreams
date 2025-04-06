@@ -22,6 +22,7 @@
     --color-bg-light: rgb(249, 249, 249);
     --color-bg-dark: rgb(21, 22, 21);
     --color-surface-dark: rgb(31, 31, 31);
+    --color-surface-light: rgb(255, 255, 255);
   }
 }
 @layer base {
@@ -183,14 +184,29 @@
   .border-\[\#2E2E2D\] {
     border-color: #2E2E2D;
   }
+  .bg-surface-light {
+    background-color: var(--color-surface-light);
+  }
   .bg-white {
     background-color: var(--color-white);
+  }
+  .px-1 {
+    padding-inline: calc(var(--spacing) * 1);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
   .py-1\.5 {
     padding-block: calc(var(--spacing) * 1.5);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .py-2\.5 {
+    padding-block: calc(var(--spacing) * 2.5);
   }
   .text-sm {
     font-size: var(--text-sm);

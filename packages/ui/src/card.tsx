@@ -1,27 +1,21 @@
-import { type JSX } from "react";
+"use client";
 
-export function Card({
-  className,
-  title,
-  children,
-  href,
-}: {
-  className?: string;
-  title: string;
-  children: React.ReactNode;
-  href: string;
-}): JSX.Element {
+import { ButtonHTMLAttributes } from "react";
+import { cn } from "./utils";
+
+interface CardProps extends ButtonHTMLAttributes<HTMLDivElement> {}
+
+export function Card({ className, children, ...props }: CardProps) {
   return (
-    <a
-      className={className}
-      href={`${href}?utm_source=create-turbo&utm_medium=basic&utm_campaign=create-turbo"`}
-      rel="noopener noreferrer"
-      target="_blank"
+    <div
+      className={cn(
+        "rounded-lg bg-surface-light dark:bg-surface-dark border border-[#2E2E2D]",
+        "py-2.5 px-3",
+        className
+      )}
+      {...props}
     >
-      <h2>
-        {title} <span>-&gt;</span>
-      </h2>
-      <p>{children}</p>
-    </a>
+      {children}
+    </div>
   );
 }
