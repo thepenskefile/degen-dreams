@@ -13,6 +13,9 @@
     "check-types": {
       "dependsOn": ["^check-types"]
     },
+    "build-css": {
+      "dependsOn": ["^build-css"]
+    },
     "dev": {
       "cache": false,
       "persistent": true

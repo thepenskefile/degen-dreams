@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* --color-bg-dark: rgb(21, 22, 21); */
+
+  /* background: {
+    light: '#f9f9f9',
+    dark: '#121212',
+  },
+  surface: {
+    light: '#ffffff',
+    dark: '#1c1c1c',
+  }, */
+
+  --color-bg-light: rgb(249, 249, 249);
+  --color-bg-dark: rgb(21, 22, 21);
+  --color-surface-dark: rgb(31, 31, 31);
+  --color-surface-light: rgb(255, 255, 255);
+}
+
+html,
+body {
+  @apply bg-bg-light dark:bg-bg-dark text-black dark:text-[#F9F7F8];
+  @apply transition-colors duration-200;
+}
