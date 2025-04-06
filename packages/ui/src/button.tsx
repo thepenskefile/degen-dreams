@@ -17,7 +17,7 @@ export const Button = ({
       type={type}
       disabled={disabled}
       className={cn(
-        "relative px-4 py-1.5 rounded-lg text-sm transition-all duration-200",
+        "relative px-4 py-1.5 rounded-lg text-sm transition-all duration-200 cursor-pointer",
         "focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2 focus:ring-offset-white",
         "dark:focus:ring-offset-surface-dark",
         "border border-[#2E2E2D]",

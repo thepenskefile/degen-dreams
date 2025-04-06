@@ -3,13 +3,15 @@
 import { InputHTMLAttributes } from "react";
 import { cn } from "./utils";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  wrapperClassName?: string;
+}
 
-export function Input({ className, ...props }: InputProps) {
+export function Input({ className, wrapperClassName, ...props }: InputProps) {
   return (
     <input
       className={cn(
-        "relative px-4 py-1.5 rounded-lg text-sm transition-all duration-200",
+        "min-w-0 px-4 py-1.5 rounded-lg text-sm transition-all duration-200",
         "bg-surface-light dark:bg-surface-dark border border-[#2E2E2D]",
         "focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2 focus:ring-offset-white",
         "dark:focus:ring-offset-surface-dark",
