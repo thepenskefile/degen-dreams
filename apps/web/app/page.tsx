@@ -2,6 +2,7 @@
 
 import { Button } from "@repo/ui/button";
 import { Card } from "@repo/ui/card";
+import { Input } from "@repo/ui/input";
 import { useTheme } from "next-themes";
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
         >
           Light mode
         </Button>
+        <Input />
       </Card>
     </div>
   );
