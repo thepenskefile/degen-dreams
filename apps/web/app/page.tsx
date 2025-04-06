@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@repo/ui/button";
+import { Card } from "@repo/ui/card";
 import { useTheme } from "next-themes";
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
     <div>
       <h1 className="text-3xl font-bold underline mb-4">Degen Dreams</h1>
 
-      <div className="flex gap-2">
+      <Card className="flex gap-2">
         <Button
           onClick={() => {
             setTheme("dark");
@@ -24,7 +25,7 @@ export default function Home() {
         >
           Light mode
         </Button>
-      </div>
+      </Card>
     </div>
   );
 }
