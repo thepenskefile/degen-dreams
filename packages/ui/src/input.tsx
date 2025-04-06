@@ -3,11 +3,9 @@
 import { InputHTMLAttributes } from "react";
 import { cn } from "./utils";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  wrapperClassName?: string;
-}
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-export function Input({ className, wrapperClassName, ...props }: InputProps) {
+export function Input({ className, ...props }: InputProps) {
   return (
     <input
       className={cn(
