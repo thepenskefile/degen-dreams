@@ -22,6 +22,6 @@
 
 html,
 body {
-  @apply bg-bg-light dark:bg-bg-dark text-black dark:text-[#F9F7F8] text-sm;
+  @apply bg-bg-light dark:bg-bg-dark text-black dark:text-[#F9F7F8] text-base;
   @apply transition-colors duration-200;
 }
