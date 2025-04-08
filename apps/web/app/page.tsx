@@ -47,15 +47,15 @@ export default function Home() {
       </div>
 
       <div className="flex flex-row gap-4 mt-8">
-        <Card className="flex flex-col gap-4 w-full justify-between">
+        <Card className="flex flex-col gap-4 w-full justify-between transition-all duration-200 hover:scale-105 hover:shadow-lg">
           <span className="text-zinc-500">If you sold at the top: </span>
           <span className="text-3xl font-semibold">$12,900</span>
         </Card>
-        <Card className="flex flex-col gap-4 w-full justify-between">
+        <Card className="flex flex-col gap-4 w-full justify-between transition-all duration-200 hover:scale-105 hover:shadow-lg">
           <span className="text-zinc-500">At the worst moment: </span>
           <span className="text-3xl font-semibold">-78%</span>
         </Card>
-        <Card className="flex flex-col gap-4 w-full justify-between">
+        <Card className="flex flex-col gap-4 w-full justify-between transition-all duration-200 hover:scale-105 hover:shadow-lg">
           <span className="text-zinc-500">Return multiple: </span>
           <span className="text-3xl font-semibold">3x</span>
         </Card>
