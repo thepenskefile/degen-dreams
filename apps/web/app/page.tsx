@@ -38,45 +38,15 @@ export default function Home() {
       const fromTs = Math.floor(new Date(formData.date).getTime() / 1000);
 
       const response = await fetch(
-        `/api/crypto/prices?fromSymbol=${formData.coin?.value}&toSymbol=USD&fromTs=${fromTs}&allData=true`
+        `/api/crypto/calculate-returns?fromTs=${fromTs}&amount=${formData.amount}&fromSymbol=${formData.coin?.value}&toSymbol=USD`
       );
 
       if (!response.ok) {
-        throw new Error("Failed to fetch price data");
+        throw new Error("Failed to calculate returns");
       }
 
-      const data: PriceData[] = await response.json();
-
-      // Calculate profit/loss metrics
-      const initialInvestment = Number(formData.amount) || 0;
-      const firstPrice = Number(data[0]?.open) || 0;
-      const lastPrice = Number(data[data.length - 1]?.close) || 0;
-      const highestPrice = Math.max(...data.map((d) => Number(d.high)));
-      const lowestPrice = Math.min(...data.map((d) => Number(d.low)));
-
-      const currentValue = (initialInvestment / firstPrice) * lastPrice;
-      const maxValue = (initialInvestment / firstPrice) * highestPrice;
-      const minValue = (initialInvestment / firstPrice) * lowestPrice;
-
-      const profitLoss = currentValue - initialInvestment;
-      const profitLossPercentage = (profitLoss / initialInvestment) * 100;
-      const maxProfit = maxValue - initialInvestment;
-      const maxLoss = minValue - initialInvestment;
-      const maxLossPercentage = (maxLoss / initialInvestment) * 100;
-      const returnMultiple = currentValue / initialInvestment;
-
-      return {
-        currentValue,
-        profitLoss,
-        profitLossPercentage,
-        maxValue,
-        maxProfit,
-        minValue,
-        maxLoss,
-        maxLossPercentage,
-        returnMultiple,
-        priceData: data,
-      };
+      const data = await response.json();
+      return data;
     },
     []
   );
