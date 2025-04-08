@@ -18,20 +18,20 @@ const schema = z.object({
   amount: z.string().min(1, { message: "Required" }),
 });
 
-type Schema = z.infer<typeof schema>;
+export type Schema = z.infer<typeof schema>;
 
 const COIN_OPTIONS: ComboboxOption<string>[] = [
-  { key: "btc", label: "Bitcoin", value: "btc" },
-  { key: "eth", label: "Ethereum", value: "eth" },
-  { key: "sol", label: "Solana", value: "sol" },
-  { key: "sui", label: "Sui", value: "sui" },
+  { key: "BTC", label: "Bitcoin", value: "BTC" },
+  { key: "ETH", label: "Ethereum", value: "ETH" },
+  { key: "SOL", label: "Solana", value: "SOL" },
+  { key: "SUI", label: "Sui", value: "SUI" },
 ];
 
-async function formAction(formData: Schema) {
-  console.log("BLAH FORM DATA: ", formData);
-}
-
-export function ReturnsForm() {
+export function ReturnsForm({
+  onSubmit,
+}: {
+  onSubmit: (formData: Schema) => void;
+}) {
   const formMethods = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: { coin: null, date: "", amount: "" },
@@ -39,7 +39,7 @@ export function ReturnsForm() {
 
   return (
     <form
-      onSubmit={formMethods?.handleSubmit(formAction)}
+      onSubmit={formMethods?.handleSubmit(onSubmit)}
       className="flex flex-col gap-4"
     >
       <div className="flex gap-2 w-full">
