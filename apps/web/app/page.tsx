@@ -1,11 +1,9 @@
 "use client";
 
-import { Button } from "@repo/ui/button";
 import { Card } from "@repo/ui/card";
-import { Combobox } from "@repo/ui/combobox";
-import { Input } from "@repo/ui/input";
 import { PageContent } from "@repo/ui/page-content";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
+import { ReturnsForm } from "./components/ReturnsForm";
 
 export default function Home() {
   return (
@@ -14,22 +12,7 @@ export default function Home() {
         <h1 className="text-3xl font-bold">If you bought...</h1>
         <ThemeSwitcher className="w-8 h-8" />
       </div>
-      <div className="flex flex-col gap-4">
-        <div className="flex gap-2 w-full">
-          <Combobox
-            options={[
-              { key: "btc", label: "Bitcoin", value: "btc" },
-              { key: "eth", label: "Ethereum", value: "eth" },
-              { key: "sol", label: "Solana", value: "sol" },
-              { key: "sui", label: "Sui", value: "sui" },
-            ]}
-          />
-          <Input className="flex-1" type="date" />
-          <Input className="flex-1" type="number" />
-        </div>
-        <Button>Simulate</Button>
-      </div>
-
+      <ReturnsForm />
       <div className="mt-8 space-y-4">
         <div className="flex flex-col gap-1">
           <div>
