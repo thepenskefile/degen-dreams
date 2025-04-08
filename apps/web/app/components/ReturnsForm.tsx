@@ -42,7 +42,7 @@ export function ReturnsForm({
       onSubmit={formMethods?.handleSubmit(onSubmit)}
       className="flex flex-col gap-4"
     >
-      <div className="flex gap-2 w-full">
+      <div className="flex gap-2 w-full flex-col md:flex-row">
         <div className="flex-1">
           <Combobox.ReactHookForm
             control={formMethods.control}

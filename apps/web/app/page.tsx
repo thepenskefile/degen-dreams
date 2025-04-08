@@ -7,6 +7,7 @@ import { PageContent } from "@repo/ui/page-content";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
 import { ReturnsForm, Schema } from "./components/ReturnsForm";
 import { useMutation } from "@tanstack/react-query";
+import { PriceChart } from "./components/PriceChart";
 
 interface PriceData {
   timestamp: number;
@@ -27,6 +28,7 @@ interface ProfitLossData {
   maxLoss: number;
   maxLossPercentage: number;
   returnMultiple: number;
+  priceData: PriceData[];
 }
 
 export default function Home() {
@@ -36,7 +38,7 @@ export default function Home() {
       const fromTs = Math.floor(new Date(formData.date).getTime() / 1000);
 
       const response = await fetch(
-        `/api/crypto/prices?fromSymbol=${formData.coin?.value}&toSymbol=USD&fromTs=${fromTs}`
+        `/api/crypto/prices?fromSymbol=${formData.coin?.value}&toSymbol=USD&fromTs=${fromTs}&allData=true`
       );
 
       if (!response.ok) {
@@ -73,6 +75,7 @@ export default function Home() {
         maxLoss,
         maxLossPercentage,
         returnMultiple,
+        priceData: data,
       };
     },
     []
@@ -161,6 +164,11 @@ export default function Home() {
                 ... <span className="italic">Ouch!</span>
               </span>
             </div>
+
+            <PriceChart
+              data={submitFormMutation.data.priceData}
+              isProfit={submitFormMutation.data.profitLoss >= 0}
+            />
           </div>
 
           <div className="flex flex-row gap-4 mt-8">
