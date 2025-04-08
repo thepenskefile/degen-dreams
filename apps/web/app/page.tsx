@@ -55,8 +55,6 @@ export default function Home() {
     mutationFn: handleSubmitForm,
   });
 
-  console.log("BLAH SUBMIT FORM MUTATION: ", submitFormMutation);
-
   return (
     <PageContent breakpoint="sm">
       <div className="flex justify-center mb-12">
@@ -79,7 +77,6 @@ export default function Home() {
       {submitFormMutation?.isPending && (
         <div className="mt-8 text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mx-auto"></div>
-          <p className="mt-4 text-zinc-500">Loading price data...</p>
         </div>
       )}
 

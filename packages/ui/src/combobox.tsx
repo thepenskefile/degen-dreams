@@ -9,7 +9,7 @@ import {
 } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
-import { cn } from "./utils";
+import { cn } from "./utils/cn";
 import { Control, Controller, FieldValues, Path } from "react-hook-form";
 
 export interface ComboboxOption<T> {
