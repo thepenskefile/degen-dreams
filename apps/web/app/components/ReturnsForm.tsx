@@ -66,7 +66,14 @@ export function ReturnsForm() {
           placeholder="Enter an amount..."
         />
       </div>
-      <Button type="submit">Simulate</Button>
+      <div className="relative p-[1px] rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
+        <Button
+          type="submit"
+          className="w-full bg-white dark:bg-surface-dark hover:bg-gray-100 dark:hover:bg-surface-dark/80"
+        >
+          Simulate
+        </Button>
+      </div>
     </form>
   );
 }

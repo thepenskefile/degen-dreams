@@ -8,6 +8,17 @@ import { ReturnsForm } from "./components/ReturnsForm";
 export default function Home() {
   return (
     <PageContent breakpoint="sm">
+      <div className="flex justify-center mb-12">
+        <h1 className="text-5xl font-black uppercase relative">
+          <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 blur-xl opacity-50"></span>
+          <span className="relative px-4 py-2">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+              Degen
+            </span>
+            <span className="dark:text-white ml-2">Dreams</span>
+          </span>
+        </h1>
+      </div>
       <div className="flex flex-row justify-between items-center  mb-4">
         <h1 className="text-3xl font-bold">If you bought...</h1>
         <ThemeSwitcher className="w-8 h-8" />
@@ -36,15 +47,15 @@ export default function Home() {
       </div>
 
       <div className="flex flex-row gap-4 mt-8">
-        <Card className="flex flex-col gap-4 w-full justify-between">
+        <Card className="flex flex-col gap-4 w-full justify-between transition-all duration-200 hover:scale-105 hover:shadow-lg">
           <span className="text-zinc-500">If you sold at the top: </span>
           <span className="text-3xl font-semibold">$12,900</span>
         </Card>
-        <Card className="flex flex-col gap-4 w-full justify-between">
+        <Card className="flex flex-col gap-4 w-full justify-between transition-all duration-200 hover:scale-105 hover:shadow-lg">
           <span className="text-zinc-500">At the worst moment: </span>
           <span className="text-3xl font-semibold">-78%</span>
         </Card>
-        <Card className="flex flex-col gap-4 w-full justify-between">
+        <Card className="flex flex-col gap-4 w-full justify-between transition-all duration-200 hover:scale-105 hover:shadow-lg">
           <span className="text-zinc-500">Return multiple: </span>
           <span className="text-3xl font-semibold">3x</span>
         </Card>
