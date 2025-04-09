@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, Combobox, Input } from "@repo/ui";
+import { Button, Combobox, Input, GradientButton } from "@repo/ui";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -60,14 +60,9 @@ export function ReturnsForm({
           placeholder="Enter an amount..."
         />
       </div>
-      <div className="relative p-0.5 rounded-[10px] bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
-        <Button
-          type="submit"
-          className="w-full bg-white dark:bg-surface-dark hover:bg-gray-100/80 dark:hover:bg-surface-dark/80 border-none"
-        >
-          Simulate
-        </Button>
-      </div>
+      <GradientButton type="submit" className="w-full">
+        Simulate
+      </GradientButton>
     </form>
   );
 }
