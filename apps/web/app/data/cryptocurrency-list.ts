@@ -1,0 +1,73 @@
+export const CRYPTOCURRENCY_LIST = [
+  // Major Cryptocurrencies
+  { key: "BTC", label: "Bitcoin", value: "BTC" },
+  { key: "ETH", label: "Ethereum", value: "ETH" },
+  { key: "BNB", label: "Binance Coin", value: "BNB" },
+  { key: "SOL", label: "Solana", value: "SOL" },
+  { key: "XRP", label: "XRP", value: "XRP" },
+  { key: "ADA", label: "Cardano", value: "ADA" },
+  { key: "AVAX", label: "Avalanche", value: "AVAX" },
+  { key: "DOT", label: "Polkadot", value: "DOT" },
+  { key: "DOGE", label: "Dogecoin", value: "DOGE" },
+  { key: "SHIB", label: "Shiba Inu", value: "SHIB" },
+
+  // Layer 1 Blockchains
+  { key: "SUI", label: "Sui", value: "SUI" },
+  { key: "APT", label: "Aptos", value: "APT" },
+  { key: "NEAR", label: "NEAR Protocol", value: "NEAR" },
+  { key: "ALGO", label: "Algorand", value: "ALGO" },
+  { key: "ATOM", label: "Cosmos", value: "ATOM" },
+  { key: "MATIC", label: "Polygon", value: "MATIC" },
+  { key: "ARB", label: "Arbitrum", value: "ARB" },
+  { key: "OP", label: "Optimism", value: "OP" },
+  { key: "FTM", label: "Fantom", value: "FTM" },
+  { key: "ONE", label: "Harmony", value: "ONE" },
+
+  // DeFi Tokens
+  { key: "UNI", label: "Uniswap", value: "UNI" },
+  { key: "AAVE", label: "Aave", value: "AAVE" },
+  { key: "LINK", label: "Chainlink", value: "LINK" },
+  { key: "MKR", label: "Maker", value: "MKR" },
+  { key: "SNX", label: "Synthetix", value: "SNX" },
+  { key: "CRV", label: "Curve DAO", value: "CRV" },
+  { key: "COMP", label: "Compound", value: "COMP" },
+  { key: "YFI", label: "Yearn Finance", value: "YFI" },
+  { key: "SUSHI", label: "SushiSwap", value: "SUSHI" },
+  { key: "CAKE", label: "PancakeSwap", value: "CAKE" },
+
+  // Gaming & Metaverse
+  { key: "SAND", label: "The Sandbox", value: "SAND" },
+  { key: "MANA", label: "Decentraland", value: "MANA" },
+  { key: "AXS", label: "Axie Infinity", value: "AXS" },
+  { key: "GALA", label: "Gala", value: "GALA" },
+  { key: "ENJ", label: "Enjin", value: "ENJ" },
+  { key: "ILV", label: "Illuvium", value: "ILV" },
+  { key: "IMX", label: "Immutable X", value: "IMX" },
+  { key: "MAGIC", label: "Magic", value: "MAGIC" },
+  { key: "YGG", label: "Yield Guild Games", value: "YGG" },
+  { key: "MC", label: "Merit Circle", value: "MC" },
+
+  // AI & Big Data
+  { key: "AGIX", label: "SingularityNET", value: "AGIX" },
+  { key: "FET", label: "Fetch.ai", value: "FET" },
+  { key: "OCEAN", label: "Ocean Protocol", value: "OCEAN" },
+  { key: "NMR", label: "Numeraire", value: "NMR" },
+  { key: "GRT", label: "The Graph", value: "GRT" },
+  { key: "BAT", label: "Basic Attention Token", value: "BAT" },
+  { key: "RNDR", label: "Render Token", value: "RNDR" },
+  { key: "AKT", label: "Akash Network", value: "AKT" },
+  { key: "HNT", label: "Helium", value: "HNT" },
+  { key: "IOTX", label: "IoTeX", value: "IOTX" },
+
+  // Privacy & Security
+  { key: "XMR", label: "Monero", value: "XMR" },
+  { key: "ZEC", label: "Zcash", value: "ZEC" },
+  { key: "SCRT", label: "Secret", value: "SCRT" },
+  { key: "ROSE", label: "Oasis Network", value: "ROSE" },
+  { key: "MINA", label: "Mina Protocol", value: "MINA" },
+  { key: "ZEN", label: "Horizen", value: "ZEN" },
+  { key: "BEAM", label: "Beam", value: "BEAM" },
+  { key: "ARRR", label: "Pirate Chain", value: "ARRR" },
+  { key: "DCR", label: "Decred", value: "DCR" },
+  { key: "XVG", label: "Verge", value: "XVG" },
+];

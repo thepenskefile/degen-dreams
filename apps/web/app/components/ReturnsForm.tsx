@@ -1,9 +1,11 @@
+import * as React from "react";
 import { Button } from "@repo/ui/button";
-import { Combobox, ComboboxOption } from "@repo/ui/combobox";
+import { Combobox } from "@repo/ui/combobox";
 import { Input } from "@repo/ui/input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { CRYPTOCURRENCY_LIST } from "../data/cryptocurrency-list";
 
 const schema = z.object({
   coin: z
@@ -20,21 +22,16 @@ const schema = z.object({
 
 export type Schema = z.infer<typeof schema>;
 
-const COIN_OPTIONS: ComboboxOption<string>[] = [
-  { key: "BTC", label: "Bitcoin", value: "BTC" },
-  { key: "ETH", label: "Ethereum", value: "ETH" },
-  { key: "SOL", label: "Solana", value: "SOL" },
-  { key: "SUI", label: "Sui", value: "SUI" },
-];
-
 export function ReturnsForm({
   onSubmit,
+  defaultValues,
 }: {
   onSubmit: (formData: Schema) => void;
+  defaultValues: Schema;
 }) {
   const formMethods = useForm<Schema>({
     resolver: zodResolver(schema),
-    defaultValues: { coin: null, date: "", amount: "" },
+    defaultValues,
   });
 
   return (
@@ -46,7 +43,7 @@ export function ReturnsForm({
         <Combobox.ReactHookForm
           control={formMethods.control}
           name="coin"
-          options={COIN_OPTIONS}
+          options={CRYPTOCURRENCY_LIST}
           placeholder="Select a coin..."
         />
 

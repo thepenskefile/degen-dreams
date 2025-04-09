@@ -1,13 +1,17 @@
 "use client";
 
 import * as React from "react";
-
+import { useSearchParams, useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { Card } from "@repo/ui/card";
 import { PageContent } from "@repo/ui/page-content";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
 import { ReturnsForm, Schema } from "./components/ReturnsForm";
 import { useMutation } from "@tanstack/react-query";
 import { PriceChart } from "./components/PriceChart";
+import { Button } from "@repo/ui/button";
+import { LinkIcon } from "@heroicons/react/20/solid";
+import { CRYPTOCURRENCY_LIST } from "./data/cryptocurrency-list";
 
 interface PriceData {
   timestamp: number;
@@ -32,6 +36,23 @@ interface ProfitLossData {
 }
 
 export default function Home() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const defaultValues = React.useMemo(() => {
+    const coin = searchParams.get("coin");
+    const date = searchParams.get("date");
+    const amount = searchParams.get("amount");
+
+    const coinOption = CRYPTOCURRENCY_LIST.find((c) => c.value === coin);
+
+    return {
+      coin: coinOption || null,
+      date: date || "",
+      amount: amount || "",
+    };
+  }, [searchParams]);
+
   const handleSubmitForm = React.useCallback(
     async (formData: Schema): Promise<ProfitLossData> => {
       // Convert the date string to Unix timestamp (seconds)
@@ -53,7 +74,29 @@ export default function Home() {
 
   const submitFormMutation = useMutation({
     mutationFn: handleSubmitForm,
+    onSuccess: (responseData, formData) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set("coin", formData.coin?.value || "");
+      params.set("date", formData.date);
+      params.set("amount", formData.amount.toString());
+      router.push(`?${params.toString()}`);
+    },
+    onError: (error) => {
+      console.error(error);
+      router.push("/");
+    },
   });
+
+  React.useEffect(() => {
+    if (defaultValues.coin && defaultValues.date && defaultValues.amount) {
+      submitFormMutation.mutate({
+        coin: defaultValues.coin,
+        date: defaultValues.date,
+        amount: defaultValues.amount,
+      });
+    }
+    // Disabling eslint rule because we want to run this effect only once on mount.
+  }, []); //eslint-disable-line
 
   return (
     <PageContent breakpoint="sm">
@@ -72,7 +115,10 @@ export default function Home() {
         <h1 className="text-3xl font-bold">If you bought...</h1>
         <ThemeSwitcher className="w-8 h-8" />
       </div>
-      <ReturnsForm onSubmit={submitFormMutation.mutate} />
+      <ReturnsForm
+        onSubmit={submitFormMutation.mutate}
+        defaultValues={defaultValues}
+      />
 
       {submitFormMutation?.isPending && (
         <div className="mt-8 text-center">
@@ -160,6 +206,27 @@ export default function Home() {
                 {submitFormMutation.data.returnMultiple.toFixed(2)}x
               </span>
             </Card>
+          </div>
+
+          <div className="flex justify-center mt-8">
+            <div className="relative p-[1px] rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
+              <Button
+                onClick={() => {
+                  navigator.clipboard
+                    .writeText(window.location.href)
+                    .then(() => {
+                      toast.success("Link copied to clipboard!");
+                    })
+                    .catch(() => {
+                      toast.error("Failed to copy link");
+                    });
+                }}
+                className="flex items-center gap-1 bg-white dark:bg-surface-dark hover:bg-gray-100/80 dark:hover:bg-surface-dark/80"
+              >
+                Share
+                <LinkIcon className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
         </div>
       )}
