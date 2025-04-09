@@ -43,14 +43,13 @@ export function ReturnsForm({
       className="flex flex-col gap-4"
     >
       <div className="flex gap-2 w-full flex-col md:flex-row">
-        <div className="flex-1">
-          <Combobox.ReactHookForm
-            control={formMethods.control}
-            name="coin"
-            options={COIN_OPTIONS}
-            placeholder="Select a coin..."
-          />
-        </div>
+        <Combobox.ReactHookForm
+          control={formMethods.control}
+          name="coin"
+          options={COIN_OPTIONS}
+          placeholder="Select a coin..."
+        />
+
         <Input
           {...formMethods.register("date")}
           className="flex-1"
