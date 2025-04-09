@@ -33,7 +33,7 @@ export function PriceChart({ data, isProfit }: PriceChartProps) {
     : { light: "#ef4444", dark: "#f87171" }; // Red
 
   return (
-    <div className="w-full h-[300px] mt-4 p-4 rounded-lg border border-[#2E2E2D]">
+    <div className="w-full h-[300px] mt-4 p-4 rounded-lg border dark:border-[#2E2E2D] border-gray-300">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data}>
           <defs>

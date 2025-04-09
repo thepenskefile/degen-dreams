@@ -9,10 +9,16 @@ export async function GET(request: Request) {
     const fromSymbol = searchParams.get("fromSymbol") || "BTC";
     const toSymbol = searchParams.get("toSymbol") || "USD";
 
-    // Validate parameters
-    if (!fromTs || !amount) {
+    if (!amount) {
       return NextResponse.json(
-        { error: "fromTs and amount parameters are required" },
+        { error: "amount is required" },
+        { status: 400 }
+      );
+    }
+
+    if (!fromSymbol) {
+      return NextResponse.json(
+        { error: "fromSymbol is required" },
         { status: 400 }
       );
     }
