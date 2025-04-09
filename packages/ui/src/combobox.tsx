@@ -69,7 +69,7 @@ export function Combobox<T>({
                 "min-w-0 w-full px-4 py-1.5 rounded-lg text-sm",
                 "transition-all duration-200",
                 "bg-surface-light dark:bg-surface-dark",
-                "border border-[#2E2E2D]",
+                "border dark:border-[#2E2E2D] border-gray-300",
                 "focus:outline-none",
                 "focus:ring-2 focus:ring-gray-200",
                 "focus:ring-offset-2 focus:ring-offset-white",
@@ -104,7 +104,7 @@ export function Combobox<T>({
                 "absolute z-10 mt-1",
                 "max-h-60 w-full overflow-auto",
                 "rounded-md bg-surface-light dark:bg-surface-dark",
-                "border border-[#2E2E2D] py-1 shadow-lg",
+                "border dark:border-[#2E2E2D] border-gray-300 py-1 shadow-lg",
                 "focus:outline-hidden text-sm",
                 "origin-top transition duration-200 ease-out empty:invisible data-[closed]:scale-95 data-[closed]:opacity-0"
               )}
