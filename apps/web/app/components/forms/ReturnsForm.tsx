@@ -1,11 +1,9 @@
 import * as React from "react";
-import { Button } from "@repo/ui/button";
-import { Combobox } from "@repo/ui/combobox";
-import { Input } from "@repo/ui/input";
+import { Combobox, Input, GradientButton } from "@repo/ui";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { CRYPTOCURRENCY_LIST } from "../data/cryptocurrency-list";
+import { CRYPTOCURRENCY_LIST } from "../../data/cryptocurrency-list";
 
 const schema = z.object({
   coin: z
@@ -62,14 +60,9 @@ export function ReturnsForm({
           placeholder="Enter an amount..."
         />
       </div>
-      <div className="relative p-[1px] rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
-        <Button
-          type="submit"
-          className="w-full bg-white dark:bg-surface-dark hover:bg-gray-100/80 dark:hover:bg-surface-dark/80"
-        >
-          Simulate
-        </Button>
-      </div>
+      <GradientButton type="submit" className="w-full">
+        Simulate
+      </GradientButton>
     </form>
   );
 }

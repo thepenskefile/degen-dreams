@@ -1,9 +1,9 @@
 "use client";
 
 import { ButtonHTMLAttributes } from "react";
-import { cn } from "./utils/cn";
+import { cn } from "../../utils/cn";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export const Button = ({
   children,

@@ -3,7 +3,7 @@
 import * as React from "react";
 import { SunIcon, MoonIcon } from "@heroicons/react/20/solid";
 import { useTheme } from "next-themes";
-import { cn } from "@repo/ui/cn";
+import { cn } from "@repo/ui";
 
 export function ThemeSwitcher({ className }: { className?: string }) {
   const [mounted, setMounted] = React.useState(false);
