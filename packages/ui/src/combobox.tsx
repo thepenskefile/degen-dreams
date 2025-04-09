@@ -62,11 +62,11 @@ export function Combobox<T>({
         }}
       >
         <div className="relative">
-          <ComboboxButton className="relative cursor-pointer">
+          <ComboboxButton className="relative cursor-pointer w-full">
             <ComboboxInput
               placeholder={placeholder}
               className={cn(
-                "min-w-0 px-4 py-1.5 rounded-lg text-sm",
+                "min-w-0 w-full px-4 py-1.5 rounded-lg text-sm",
                 "transition-all duration-200",
                 "bg-surface-light dark:bg-surface-dark",
                 "border border-[#2E2E2D]",

@@ -58,9 +58,9 @@ export default function Home() {
   return (
     <PageContent breakpoint="sm">
       <div className="flex justify-center mb-12">
-        <h1 className="text-5xl font-black uppercase relative">
+        <h1 className="text-3xl md:text-5xl font-black uppercase relative w-full text-center">
           <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 blur-xl opacity-50"></span>
-          <span className="relative px-4 py-2">
+          <span className="relative px-4 py-2 inline-block">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
               Degen
             </span>
@@ -92,7 +92,7 @@ export default function Home() {
           <div className="mt-8 space-y-4">
             <div className="flex flex-col gap-1">
               <div>
-                <span className="text-4xl font-bold">
+                <span className="text-3xl md:text-4xl font-bold">
                   {submitFormMutation.data.profitLoss >= 0 ? "🎉" : "💸"}{" "}
                   You&apos;d have $
                   {submitFormMutation.data.currentValue.toLocaleString(
@@ -123,7 +123,7 @@ export default function Home() {
             </div>
 
             <div>
-              <span className="uppercase text-4xl font-bold text-amber-300">
+              <span className="uppercase text-3xl md:text-4xl font-bold text-amber-300">
                 But you missed out on a max of $
                 {submitFormMutation.data.maxValue.toLocaleString(undefined, {
                   maximumFractionDigits: 2,
@@ -138,10 +138,10 @@ export default function Home() {
             />
           </div>
 
-          <div className="flex flex-row gap-4 mt-8">
+          <div className="flex flex-col md:flex-row gap-4 mt-8">
             <Card className="flex flex-col gap-4 w-full justify-between transition-all duration-200 hover:scale-105 hover:shadow-lg">
               <span className="text-zinc-500">If you sold at the top: </span>
-              <span className="text-3xl font-semibold">
+              <span className="text-2xl md:text-3xl font-semibold">
                 $
                 {submitFormMutation.data.maxValue.toLocaleString(undefined, {
                   maximumFractionDigits: 2,
@@ -150,13 +150,13 @@ export default function Home() {
             </Card>
             <Card className="flex flex-col gap-4 w-full justify-between transition-all duration-200 hover:scale-105 hover:shadow-lg">
               <span className="text-zinc-500">At the worst moment: </span>
-              <span className="text-3xl font-semibold">
+              <span className="text-2xl md:text-3xl font-semibold">
                 {submitFormMutation.data.maxLossPercentage.toFixed(2)}%
               </span>
             </Card>
             <Card className="flex flex-col gap-4 w-full justify-between transition-all duration-200 hover:scale-105 hover:shadow-lg">
               <span className="text-zinc-500">Return multiple: </span>
-              <span className="text-3xl font-semibold">
+              <span className="text-2xl md:text-3xl font-semibold">
                 {submitFormMutation.data.returnMultiple.toFixed(2)}x
               </span>
             </Card>
