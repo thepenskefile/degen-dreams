@@ -62,10 +62,10 @@ export function ReturnsForm({
           placeholder="Enter an amount..."
         />
       </div>
-      <div className="relative p-[1px] rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
+      <div className="relative p-0.5 rounded-[10px] bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
         <Button
           type="submit"
-          className="w-full bg-white dark:bg-surface-dark hover:bg-gray-100/80 dark:hover:bg-surface-dark/80"
+          className="w-full bg-white dark:bg-surface-dark hover:bg-gray-100/80 dark:hover:bg-surface-dark/80 border-none"
         >
           Simulate
         </Button>
