@@ -12,6 +12,7 @@ import { StatsCards } from "./components/results/StatsCards";
 import { ShareButton } from "./components/ui/ShareButton";
 import { CRYPTOCURRENCY_LIST } from "./data/cryptocurrency-list";
 import { CalculateReturnsResult } from "./services/price-service";
+import { Footer } from "./components/layout/Footer";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -124,6 +125,7 @@ export default function Home() {
           <ShareButton />
         </>
       )}
+      <Footer />
     </PageContent>
   );
 }
