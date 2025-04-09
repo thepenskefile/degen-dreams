@@ -1,9 +1,6 @@
 import React from "react";
 import { PriceChart } from "../charts/PriceChart";
-import {
-  PriceData,
-  CalculateReturnsResult,
-} from "../../services/price-service";
+import { CalculateReturnsResult } from "../../services/price-service";
 
 interface ResultsDisplayProps {
   data: Pick<
