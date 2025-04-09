@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@repo/ui/button";
+import { Button } from "@repo/ui";
 import { LinkIcon } from "@heroicons/react/20/solid";
 import { toast } from "sonner";
 

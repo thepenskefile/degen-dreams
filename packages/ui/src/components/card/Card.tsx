@@ -1,9 +1,9 @@
 "use client";
 
-import { ButtonHTMLAttributes } from "react";
-import { cn } from "./utils/cn";
+import { HTMLAttributes } from "react";
+import { cn } from "../../utils/cn";
 
-interface CardProps extends ButtonHTMLAttributes<HTMLDivElement> {}
+export interface CardProps extends HTMLAttributes<HTMLDivElement> {}
 
 export function Card({ className, children, ...props }: CardProps) {
   return (

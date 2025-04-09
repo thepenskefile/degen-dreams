@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { PageContent } from "@repo/ui/page-content";
+import { PageContent } from "@repo/ui";
 import { ThemeSwitcher } from "./components/theme/ThemeSwitcher";
 import { ReturnsForm, Schema } from "./components/forms/ReturnsForm";
 import { useMutation } from "@tanstack/react-query";

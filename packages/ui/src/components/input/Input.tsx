@@ -2,9 +2,9 @@
 
 import * as React from "react";
 import { InputHTMLAttributes } from "react";
-import { cn } from "./utils/cn";
+import { cn } from "../../utils/cn";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   validationText?: string | undefined;
 }
 

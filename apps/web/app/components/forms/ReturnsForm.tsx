@@ -1,7 +1,5 @@
 import * as React from "react";
-import { Button } from "@repo/ui/button";
-import { Combobox } from "@repo/ui/combobox";
-import { Input } from "@repo/ui/input";
+import { Button, Combobox, Input } from "@repo/ui";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";

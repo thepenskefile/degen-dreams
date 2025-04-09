@@ -3,15 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./styles": "./src/output.css",
-    "./*": "./src/*.tsx",
-    "./cn": "./src/utils/cn.ts"
+    ".": "./src/index.ts",
+    "./styles": "./src/styles/output.css",
+    "./styles/globals": "./src/styles/globals.css"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "check-types": "tsc --noEmit",
-    "build-css": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css",
-    "build-css:watch": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
+    "build-css": "npx @tailwindcss/cli -i ./src/styles/globals.css -o ./src/styles/output.css",
+    "build-css:watch": "npx @tailwindcss/cli -i ./src/styles/globals.css -o ./src/styles/output.css --watch"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
