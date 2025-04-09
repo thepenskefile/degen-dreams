@@ -5,7 +5,7 @@ import { Input } from "@repo/ui/input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { CRYPTOCURRENCY_LIST } from "../data/cryptocurrency-list";
+import { CRYPTOCURRENCY_LIST } from "../../data/cryptocurrency-list";
 
 const schema = z.object({
   coin: z
