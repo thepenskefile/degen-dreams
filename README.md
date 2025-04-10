@@ -1,84 +1,71 @@
-# Turborepo starter
+# Degen Dreams
 
-This Turborepo starter is maintained by the Turborepo core team.
+A web application that lets you calculate potential returns on cryptocurrency investments. Ever wondered how much your crypto investment would be worth today? Select a coin, pick a date, enter your investment amount, and see what could have been.
 
-## Using this example
+## Features
 
-Run the following command:
+- Calculate potential returns on cryptocurrency investments
+- View detailed statistics including:
+  - Current value
+  - Profit/loss percentage
+  - Maximum value achieved
+  - Highest and lowest points
+- Share your results with others
+- Dark/Light theme support
+- Mobile-responsive design
 
-```sh
-npx create-turbo@latest
-```
+## Tech Stack
 
-## What's inside?
+- Next.js
+- TypeScript
+- Tailwind CSS
+- React Query
+- Turborepo (monorepo setup)
 
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+## Project Structure
 
 ```
-cd my-turborepo
-pnpm build
+degen-dreams/
+├── apps/
+│   └── web/                 # Main web application
+│       ├── app/            # Next.js app directory
+│       │   ├── api/        # API routes
+│       │   ├── components/ # React components
+│       │   ├── data/       # Static data
+│       │   ├── services/   # Service layer
+│       │   └── theme/      # Theme configuration
+│       └── ...
+├── packages/               # Shared packages
+└── ...
 ```
 
-### Develop
+## Getting Started
 
-To develop all apps and packages, run the following command:
+1. Clone the repository
+2. Install dependencies:
 
-```
-cd my-turborepo
-pnpm dev
-```
+   ```bash
+   npm install
+   ```
 
-### Remote Caching
+3. Start the development server:
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+   ```bash
+   npm run dev
+   ```
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+## Development
 
-```
-cd my-turborepo
-npx turbo login
-```
+The project uses Turborepo for monorepo management. The main application is in the `apps/web` directory.
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+### Running Tests
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
+```bash
+npm run test
 ```
 
-## Useful Links
+## License
 
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/docs/reference/command-line-reference)
+This project is licensed under the MIT License - see the LICENSE file for details.
