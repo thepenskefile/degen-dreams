@@ -158,7 +158,7 @@ export function PriceChart({
 
           <ReferenceDot
             x={highestPoint.date}
-            y={highestPoint.high}
+            y={highestPoint.close}
             r={20}
             fill="transparent"
             stroke="none"
@@ -171,7 +171,7 @@ export function PriceChart({
 
           <ReferenceDot
             x={lowestPoint.date}
-            y={lowestPoint.low}
+            y={lowestPoint.close}
             r={20}
             fill="transparent"
             stroke="none"
