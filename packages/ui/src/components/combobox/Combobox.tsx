@@ -77,6 +77,7 @@ export function Combobox<T>({
                 "bg-white hover:bg-gray-100",
                 "dark:bg-surface-dark dark:hover:bg-surface-dark/80",
                 "disabled:opacity-50 disabled:cursor-not-allowed",
+                "placeholder:text-gray-400",
                 { "border-red-400 focus:ring-red-200": Boolean(validationText) }
               )}
               onChange={(event) => setQuery(event.target.value)}

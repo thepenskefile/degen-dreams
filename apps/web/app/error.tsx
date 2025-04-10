@@ -1,12 +1,10 @@
 "use client";
 
 import { Button, cn, PageContent } from "@repo/ui";
-import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 
 export default function Error({ error }: { error: Error }) {
   const router = useRouter();
-  const { theme } = useTheme();
 
   return (
     <PageContent
@@ -14,17 +12,9 @@ export default function Error({ error }: { error: Error }) {
       className="container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-[70vh]"
     >
       <div className="text-center space-y-6 max-w-2xl">
-        <div
-          className={cn(
-            "inline-flex items-center justify-center w-16 h-16 rounded-full",
-            theme === "dark" ? "bg-red-200" : "bg-red-100"
-          )}
-        >
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 dark:bg-red-200">
           <svg
-            className={cn(
-              "w-8 h-8",
-              theme === "dark" ? "text-red-400" : "text-red-600"
-            )}
+            className="w-8 h-8 text-red-600 dark:text-red-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -38,28 +28,11 @@ export default function Error({ error }: { error: Error }) {
             />
           </svg>
         </div>
-        <h1
-          className={cn(
-            "text-3xl font-bold",
-            theme === "dark" ? "text-white" : "text-gray-900"
-          )}
-        >
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
           Oops! Something went wrong
         </h1>
-        <div
-          className={cn(
-            "p-4 rounded-lg border",
-            theme === "dark"
-              ? "bg-red-200 border-red-500"
-              : "bg-red-50 border-red-200"
-          )}
-        >
-          <p
-            className={cn(
-              "text-red-600 dark:text-red-400 font-medium",
-              theme === "dark" ? "dark:text-red-400" : "text-red-600"
-            )}
-          >
+        <div className="p-4 rounded-lg border bg-red-50 border-red-200 dark:bg-red-200 dark:border-red-500">
+          <p className="text-red-600 dark:text-red-400 font-medium">
             {error.message || "An unexpected error occurred"}
           </p>
         </div>

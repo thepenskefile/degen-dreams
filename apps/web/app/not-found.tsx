@@ -1,12 +1,10 @@
 "use client";
 
-import { Button, PageContent, cn } from "@repo/ui";
-import { useTheme } from "next-themes";
+import { Button, PageContent } from "@repo/ui";
 import { useRouter } from "next/navigation";
 
 export default function NotFound() {
   const router = useRouter();
-  const { theme } = useTheme();
 
   return (
     <PageContent
@@ -14,17 +12,9 @@ export default function NotFound() {
       className="container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-[70vh]"
     >
       <div className="text-center space-y-6 max-w-2xl">
-        <div
-          className={cn(
-            "inline-flex items-center justify-center w-16 h-16 rounded-full",
-            theme === "dark" ? "bg-red-200" : "bg-red-100"
-          )}
-        >
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 dark:bg-red-200">
           <svg
-            className={cn(
-              "w-8 h-8",
-              theme === "dark" ? "text-red-400" : "text-red-600"
-            )}
+            className="w-8 h-8 text-red-600 dark:text-red-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -38,33 +28,16 @@ export default function NotFound() {
             />
           </svg>
         </div>
-        <h1
-          className={cn(
-            "text-3xl font-bold",
-            theme === "dark" ? "text-white" : "text-gray-900"
-          )}
-        >
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
           Page Not Found
         </h1>
-        <div
-          className={cn(
-            "p-4 rounded-lg border",
-            theme === "dark"
-              ? "bg-red-200 border-red-500"
-              : "bg-red-50 border-red-200"
-          )}
-        >
-          <p
-            className={cn(
-              "font-medium",
-              theme === "dark" ? "text-red-400" : "text-red-600"
-            )}
-          >
+        <div className="p-4 rounded-lg border bg-red-50 border-red-200 dark:bg-red-200 dark:border-red-500">
+          <p className="font-medium text-red-600 dark:text-red-400">
             The page you&apos;re looking for doesn&apos;t exist or has been
             moved.
           </p>
         </div>
-        <p className={cn(theme === "dark" ? "text-gray-400" : "text-gray-600")}>
+        <p className="text-gray-600 dark:text-gray-400">
           Don&apos;t worry, you can go back to the home page and try again.
         </p>
         <div className="flex gap-4 justify-center">

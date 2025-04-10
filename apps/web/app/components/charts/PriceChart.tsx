@@ -8,7 +8,6 @@ import {
   ResponsiveContainer,
   CartesianGrid,
   ReferenceDot,
-  Label,
   ReferenceLine,
 } from "recharts";
 import { useTheme } from "next-themes";

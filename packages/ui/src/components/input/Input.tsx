@@ -30,6 +30,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             "bg-white hover:bg-gray-100",
             "dark:bg-surface-dark dark:hover:bg-surface-dark/80",
             "disabled:opacity-50 disabled:cursor-not-allowed",
+            "[&::-webkit-datetime-edit-fields-wrapper:not(:focus):placeholder-shown]:text-gray-400",
+            "placeholder:text-gray-400",
             { "border-red-400 focus:ring-red-200": Boolean(validationText) },
             className
           )}

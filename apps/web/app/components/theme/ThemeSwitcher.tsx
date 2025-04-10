@@ -22,11 +22,7 @@ export function ThemeSwitcher({ className }: { className?: string }) {
       type="button"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className={cn(
-        "rounded-full cursor-pointer p-1 flex items-center justify-center",
-        {
-          "hover:bg-gray-200": theme === "light",
-          "hover:bg-gray-800": theme === "dark",
-        },
+        "rounded-full cursor-pointer p-1 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800",
         className
       )}
     >
