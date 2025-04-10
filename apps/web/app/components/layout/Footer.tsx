@@ -31,7 +31,7 @@ export function Footer() {
           Powered by
         </span>
         <a
-          href="https://developers.coindesk.com/documentation/legacy/Price/SingleSymbolPriceEndpoint/"
+          href="https://developers.coindesk.com/documentation/legacy/Historical/dataHistoday"
           target="_blank"
           rel="noopener noreferrer"
           className="text-center text-gray-600 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-200 transition-colors flex items-center gap-1"
