@@ -10,6 +10,8 @@ interface ResultsDisplayProps {
     | "profitLoss"
     | "maxValue"
     | "priceData"
+    | "highestPoint"
+    | "lowestPoint"
   >;
 }
 
@@ -54,7 +56,12 @@ export function ResultsDisplay({ data }: ResultsDisplayProps) {
         </span>
       </div>
 
-      <PriceChart data={data.priceData} isProfit={data.profitLoss >= 0} />
+      <PriceChart
+        data={data.priceData}
+        isProfit={data.profitLoss >= 0}
+        highestPoint={data.highestPoint}
+        lowestPoint={data.lowestPoint}
+      />
     </div>
   );
 }

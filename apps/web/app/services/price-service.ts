@@ -21,6 +21,8 @@ export interface CalculateReturnsResult {
   maxLossPercentage: number;
   returnMultiple: number;
   priceData: PriceData[];
+  highestPoint: PriceData;
+  lowestPoint: PriceData;
 }
 
 // Calculate seconds until next UTC day
@@ -84,11 +86,21 @@ export async function calculateInvestmentReturns(
     throw new Error("Invalid price data");
   }
 
+  const highestPoint = filteredData.reduce(
+    (max: PriceData, point: PriceData) => (point.high > max.high ? point : max),
+    firstDataPoint
+  );
+
+  const lowestPoint = filteredData.reduce(
+    (min: PriceData, point: PriceData) => (point.low < min.low ? point : min),
+    firstDataPoint
+  );
+
   const initialInvestment = Number(amount);
   const firstPrice = firstDataPoint.open;
   const lastPrice = lastDataPoint.close;
-  const highestPrice = Math.max(...filteredData.map((d) => d.high));
-  const lowestPrice = Math.min(...filteredData.map((d) => d.low));
+  const highestPrice = highestPoint.high;
+  const lowestPrice = lowestPoint.low;
 
   const currentValue = (initialInvestment / firstPrice) * lastPrice;
   const maxValue = (initialInvestment / firstPrice) * highestPrice;
@@ -112,5 +124,7 @@ export async function calculateInvestmentReturns(
     maxLossPercentage,
     returnMultiple,
     priceData: filteredData,
+    highestPoint,
+    lowestPoint,
   };
 }

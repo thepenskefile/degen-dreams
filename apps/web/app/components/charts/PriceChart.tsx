@@ -7,6 +7,9 @@ import {
   Tooltip,
   ResponsiveContainer,
   CartesianGrid,
+  ReferenceDot,
+  Label,
+  ReferenceLine,
 } from "recharts";
 import { useTheme } from "next-themes";
 
@@ -22,9 +25,16 @@ interface PriceData {
 interface PriceChartProps {
   data: PriceData[];
   isProfit: boolean;
+  highestPoint: PriceData;
+  lowestPoint: PriceData;
 }
 
-export function PriceChart({ data, isProfit }: PriceChartProps) {
+export function PriceChart({
+  data,
+  isProfit,
+  highestPoint,
+  lowestPoint,
+}: PriceChartProps) {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
@@ -32,8 +42,11 @@ export function PriceChart({ data, isProfit }: PriceChartProps) {
     ? { light: "#14b8a6", dark: "#5eead4" } // Teal
     : { light: "#ef4444", dark: "#f87171" }; // Red
 
+  const firstPoint = React.useMemo(() => data[0], [data]);
+  const lastPoint = React.useMemo(() => data[data.length - 1], [data]);
+
   return (
-    <div className="w-full h-[300px] mt-4 p-4 rounded-lg border dark:border-[#2E2E2D] border-gray-300">
+    <div className="w-full h-80 mt-4 p-4 rounded-lg border dark:border-[#2E2E2D] border-gray-300">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data}>
           <defs>
@@ -50,14 +63,42 @@ export function PriceChart({ data, isProfit }: PriceChartProps) {
               />
             </linearGradient>
           </defs>
+
           <CartesianGrid
             horizontal={true}
             vertical={false}
             stroke={isDark ? "#2E2E2D" : "#e4e4e7"}
             strokeDasharray="0"
           />
+
           <XAxis dataKey="date" hide={true} />
+
           <YAxis hide={true} />
+
+          <ReferenceLine
+            x={firstPoint?.date}
+            stroke={isDark ? "#ffffff" : "#000000"}
+            strokeDasharray="6 3"
+            strokeOpacity={0.5}
+            label={{
+              value: "Where you aped in",
+              position: "insideBottomLeft",
+              style: { fontSize: 10 },
+            }}
+          />
+
+          <ReferenceLine
+            x={lastPoint?.date}
+            stroke={isDark ? "#ffffff" : "#000000"}
+            strokeDasharray="6 3"
+            strokeOpacity={0.5}
+            label={{
+              value: "Where we are now",
+              position: "insideBottomRight",
+              style: { fontSize: 10 },
+            }}
+          />
+
           <Tooltip
             contentStyle={{
               backgroundColor: isDark ? "#18181b" : "#ffffff",
@@ -74,6 +115,7 @@ export function PriceChart({ data, isProfit }: PriceChartProps) {
               }).format(value)
             }
           />
+
           <Area
             type="monotone"
             dataKey="close"
@@ -85,6 +127,32 @@ export function PriceChart({ data, isProfit }: PriceChartProps) {
             activeDot={{
               r: 4,
               fill: isDark ? chartColor.dark : chartColor.light,
+            }}
+          />
+
+          <ReferenceDot
+            x={highestPoint.date}
+            y={highestPoint.close}
+            r={20}
+            fill="transparent"
+            stroke="none"
+            label={{
+              value: "🤑",
+              position: "center",
+              style: { fontSize: 28 },
+            }}
+          />
+
+          <ReferenceDot
+            x={lowestPoint.date}
+            y={lowestPoint.close}
+            r={20}
+            fill="transparent"
+            stroke="none"
+            label={{
+              value: "😱",
+              position: "center",
+              style: { fontSize: 28 },
             }}
           />
         </AreaChart>
