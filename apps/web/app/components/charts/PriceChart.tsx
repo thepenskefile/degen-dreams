@@ -107,30 +107,52 @@ export function PriceChart({
           <ReferenceDot
             x={firstPoint.date}
             y={firstPoint.open}
-            r={4}
-            fill={isDark ? chartColor.dark : chartColor.light}
+            r={6}
+            fill={isDark ? "#000000" : "#ffffff"}
+            stroke={isDark ? chartColor.dark : chartColor.light}
+            strokeWidth={2}
           >
             <Label
               value="You bought here"
               position="insideLeft"
-              fill={isDark ? "#e4e4e7" : "#52525b"}
+              fill="#ffffff"
               fontSize={12}
-              offset={10}
+              fontWeight="bold"
+              className="uppercase"
+              style={{
+                textShadow: `
+                  0 0 7px #ff1493,
+                  0 0 10px #ff1493,
+                  0 0 21px #ff1493,
+                  0 0 42px #ff1493
+                `,
+              }}
             />
           </ReferenceDot>
           {/* Current price sign */}
           <ReferenceDot
             x={lastPoint.date}
             y={lastPoint.close}
-            r={4}
-            fill={isDark ? chartColor.dark : chartColor.light}
+            r={6}
+            fill={isDark ? "#000000" : "#ffffff"}
+            stroke={isDark ? chartColor.dark : chartColor.light}
+            strokeWidth={2}
           >
             <Label
               value="Today's price"
               position="insideRight"
-              fill={isDark ? "#e4e4e7" : "#52525b"}
+              fill="#ffffff"
               fontSize={12}
-              offset={10}
+              fontWeight="bold"
+              className="uppercase"
+              style={{
+                textShadow: `
+                  0 0 7px #ff1493,
+                  0 0 10px #ff1493,
+                  0 0 21px #ff1493,
+                  0 0 42px #ff1493
+                `,
+              }}
             />
           </ReferenceDot>
           {/* Emoji at highest point */}
