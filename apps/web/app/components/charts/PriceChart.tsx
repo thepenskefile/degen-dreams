@@ -113,7 +113,7 @@ export function PriceChart({
             strokeWidth={2}
           >
             <Label
-              value="YOU BOUGHT HERE"
+              value="You bought here"
               position="insideTopLeft"
               fill="#ffffff"
               fontSize={12}
@@ -146,7 +146,7 @@ export function PriceChart({
             strokeWidth={2}
           >
             <Label
-              value="TODAY'S PRICE"
+              value="Today's price"
               position="insideTopRight"
               fill="#ffffff"
               fontSize={12}
