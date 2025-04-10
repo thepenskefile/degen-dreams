@@ -9,6 +9,7 @@ import {
   CartesianGrid,
   ReferenceDot,
   Label,
+  ReferenceLine,
 } from "recharts";
 import { useTheme } from "next-themes";
 
@@ -74,6 +75,30 @@ export function PriceChart({
 
           <YAxis hide={true} />
 
+          <ReferenceLine
+            x={firstPoint?.date}
+            stroke={isDark ? "#ffffff" : "#000000"}
+            strokeDasharray="6 3"
+            strokeOpacity={0.5}
+            label={{
+              value: "Where you aped in",
+              position: "insideBottomLeft",
+              style: { fontSize: 10 },
+            }}
+          />
+
+          <ReferenceLine
+            x={lastPoint?.date}
+            stroke={isDark ? "#ffffff" : "#000000"}
+            strokeDasharray="6 3"
+            strokeOpacity={0.5}
+            label={{
+              value: "Where we are now",
+              position: "insideBottomRight",
+              style: { fontSize: 10 },
+            }}
+          />
+
           <Tooltip
             contentStyle={{
               backgroundColor: isDark ? "#18181b" : "#ffffff",
@@ -104,57 +129,6 @@ export function PriceChart({
               fill: isDark ? chartColor.dark : chartColor.light,
             }}
           />
-          {firstPoint && (
-            <ReferenceDot
-              x={firstPoint.date}
-              y={firstPoint.open}
-              r={4}
-              fill={isDark ? "#000000" : "#ffffff"}
-              stroke={isDark ? chartColor.dark : chartColor.light}
-              strokeWidth={2}
-            >
-              <Label
-                value="You bought here"
-                position="insideLeft"
-                offset={10}
-                fill="#FFD230"
-                fontSize={10}
-                fontWeight="bold"
-                className="uppercase"
-                style={{
-                  stroke: isDark ? "#000000" : "#ffffff",
-                  strokeWidth: "2px",
-                  paintOrder: "stroke fill",
-                }}
-              />
-            </ReferenceDot>
-          )}
-
-          {lastPoint && (
-            <ReferenceDot
-              x={lastPoint.date}
-              y={lastPoint.close}
-              r={4}
-              fill={isDark ? "#000000" : "#ffffff"}
-              stroke={isDark ? chartColor.dark : chartColor.light}
-              strokeWidth={2}
-            >
-              <Label
-                value="Today's price"
-                position="insideRight"
-                offset={10}
-                fill="#FFD230"
-                fontSize={10}
-                fontWeight="bold"
-                className="uppercase"
-                style={{
-                  stroke: isDark ? "#000000" : "#ffffff",
-                  strokeWidth: "2px",
-                  paintOrder: "stroke fill",
-                }}
-              />
-            </ReferenceDot>
-          )}
 
           <ReferenceDot
             x={highestPoint.date}
