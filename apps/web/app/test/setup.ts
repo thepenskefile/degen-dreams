@@ -2,12 +2,7 @@ import "@testing-library/jest-dom";
 import { afterEach, vi, beforeAll, afterAll } from "vitest";
 import { cleanup } from "@testing-library/react";
 import { setupServer } from "msw/node";
-import { http, HttpResponse } from "msw";
-import { CalculateReturnsResult } from "../services/price-service";
-// Cleanup after each test case
-afterEach(() => {
-  cleanup();
-});
+import { mockAnimationsApi } from "jsdom-testing-mocks";
 
 // Mock ResizeObserver
 class ResizeObserverMock {
@@ -17,6 +12,22 @@ class ResizeObserverMock {
 }
 
 global.ResizeObserver = ResizeObserverMock;
+
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: vi.fn().mockImplementation((query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: vi.fn(), // deprecated
+    removeListener: vi.fn(), // deprecated
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn(),
+  })),
+});
+
+mockAnimationsApi();
 
 // Mock next/navigation
 vi.mock("next/navigation", () => ({
@@ -31,30 +42,14 @@ vi.mock("next/navigation", () => ({
 }));
 
 // Setup MSW server
-export const server = setupServer(
-  http.post("/api/calculate-returns", () => {
-    const calculateReturnsResult: CalculateReturnsResult = {
-      currentValue: 1000,
-      profitLossPercentage: 10,
-      profitLoss: 100,
-      maxValue: 1200,
-      priceData: [],
-      maxLossPercentage: -5,
-      returnMultiple: 2,
-      maxProfit: 100,
-      minValue: 800,
-      maxLoss: -100,
-    };
-
-    return HttpResponse.json(calculateReturnsResult);
-  })
-);
+export const server = setupServer();
 
 // Start server before all tests
 beforeAll(() => server.listen({ onUnhandledRequest: "error" }));
 
-// Reset handlers after each test
-afterEach(() => server.resetHandlers());
+afterEach(() => {
+  cleanup();
+  server.resetHandlers();
+});
 
-// Close server after all tests
 afterAll(() => server.close());

@@ -16,6 +16,9 @@
     "build-css": {
       "dependsOn": ["^build-css"]
     },
+    "test": {
+      "dependsOn": ["^test"]
+    },
     "dev": {
       "cache": false,
       "persistent": true

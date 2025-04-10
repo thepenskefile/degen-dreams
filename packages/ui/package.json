@@ -12,7 +12,7 @@
     "check-types": "tsc --noEmit",
     "build-css": "npx @tailwindcss/cli -i ./src/styles/globals.css -o ./src/styles/output.css",
     "build-css:watch": "npx @tailwindcss/cli -i ./src/styles/globals.css -o ./src/styles/output.css --watch",
-    "test": "vitest",
+    "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage"
   },

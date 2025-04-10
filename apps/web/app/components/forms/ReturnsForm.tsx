@@ -51,6 +51,7 @@ export function ReturnsForm({
           type="date"
           validationText={formMethods.formState.errors.date?.message}
           placeholder="Date"
+          aria-label="Date"
         />
         <Input
           {...formMethods.register("amount")}
@@ -58,6 +59,7 @@ export function ReturnsForm({
           type="number"
           validationText={formMethods.formState.errors.amount?.message}
           placeholder="Enter an amount..."
+          aria-label="Amount"
         />
       </div>
       <GradientButton type="submit" className="w-full">
