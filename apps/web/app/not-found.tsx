@@ -1,10 +1,10 @@
 "use client";
 
-import { Button, cn, PageContent } from "@repo/ui";
+import { Button, PageContent, cn } from "@repo/ui";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 
-export default function Error({ error }: { error: Error }) {
+export default function NotFound() {
   const router = useRouter();
   const { theme } = useTheme();
 
@@ -44,7 +44,7 @@ export default function Error({ error }: { error: Error }) {
             theme === "dark" ? "text-white" : "text-gray-900"
           )}
         >
-          Oops! Something went wrong
+          Page Not Found
         </h1>
         <div
           className={cn(
@@ -56,13 +56,17 @@ export default function Error({ error }: { error: Error }) {
         >
           <p
             className={cn(
-              "text-red-600 dark:text-red-400 font-medium",
-              theme === "dark" ? "dark:text-red-400" : "text-red-600"
+              "font-medium",
+              theme === "dark" ? "text-red-400" : "text-red-600"
             )}
           >
-            {error.message || "An unexpected error occurred"}
+            The page you&apos;re looking for doesn&apos;t exist or has been
+            moved.
           </p>
         </div>
+        <p className={cn(theme === "dark" ? "text-gray-400" : "text-gray-600")}>
+          Don&apos;t worry, you can go back to the home page and try again.
+        </p>
         <div className="flex gap-4 justify-center">
           <Button onClick={() => router.push("/")}>Back to home</Button>
         </div>
