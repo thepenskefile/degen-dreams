@@ -11,6 +11,22 @@ const mockReturnsResult: CalculateReturnsResult = {
   maxProfit: 100,
   minValue: 800,
   maxLoss: -100,
+  highestPoint: {
+    timestamp: 1712985600,
+    date: "2024-04-15",
+    open: 1000,
+    high: 1200,
+    low: 800,
+    close: 1200,
+  },
+  lowestPoint: {
+    timestamp: 1712985600,
+    date: "2024-04-15",
+    open: 1000,
+    high: 1200,
+    low: 800,
+    close: 800,
+  },
 };
 
 export function buildCalculateReturnsResult(
