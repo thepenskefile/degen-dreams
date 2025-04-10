@@ -113,18 +113,25 @@ export function PriceChart({
             strokeWidth={2}
           >
             <Label
-              value="You bought here"
-              position="insideLeft"
+              value="YOU BOUGHT HERE"
+              position="insideTopLeft"
               fill="#ffffff"
               fontSize={12}
               fontWeight="bold"
               className="uppercase"
               style={{
-                textShadow: `
-                  0 0 7px #ff1493,
-                  0 0 10px #ff1493,
-                  0 0 21px #ff1493,
-                  0 0 42px #ff1493
+                textShadow: isDark
+                  ? `
+                  0 0 7px #fcd34d,
+                  0 0 10px #fcd34d,
+                  0 0 21px #f59e0b,
+                  0 0 42px #f59e0b
+                `
+                  : `
+                  0 0 7px #b45309,
+                  0 0 10px #92400e,
+                  0 0 21px #78350f,
+                  0 0 42px #451a03
                 `,
               }}
             />
@@ -139,18 +146,25 @@ export function PriceChart({
             strokeWidth={2}
           >
             <Label
-              value="Today's price"
-              position="insideRight"
+              value="TODAY'S PRICE"
+              position="insideTopRight"
               fill="#ffffff"
               fontSize={12}
               fontWeight="bold"
               className="uppercase"
               style={{
-                textShadow: `
-                  0 0 7px #ff1493,
-                  0 0 10px #ff1493,
-                  0 0 21px #ff1493,
-                  0 0 42px #ff1493
+                textShadow: isDark
+                  ? `
+                  0 0 7px #fcd34d,
+                  0 0 10px #fcd34d,
+                  0 0 21px #f59e0b,
+                  0 0 42px #f59e0b
+                `
+                  : `
+                  0 0 7px #b45309,
+                  0 0 10px #92400e,
+                  0 0 21px #78350f,
+                  0 0 42px #451a03
                 `,
               }}
             />
