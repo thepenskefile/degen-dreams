@@ -588,38 +588,9 @@
       }
     }
   }
-  .\[\&\:\:-webkit-datetime-edit\]\:text-gray-400 {
-    &::-webkit-datetime-edit {
-      color: var(--color-gray-400);
-    }
-  }
-  .\[\&\:\:-webkit-datetime-edit-fields-wrapper\]\:text-gray-400 {
-    &::-webkit-datetime-edit-fields-wrapper {
-      color: var(--color-gray-400);
-    }
-  }
-  .\[\&\:\:-webkit-datetime-edit-fields-wrapper\]\:placeholder\:text-gray-400 {
-    &::-webkit-datetime-edit-fields-wrapper {
-      &::placeholder {
-        color: var(--color-gray-400);
-      }
-    }
-  }
   .\[\&\:\:-webkit-datetime-edit-fields-wrapper\:not\(\:focus\)\:placeholder-shown\]\:text-gray-400 {
     &::-webkit-datetime-edit-fields-wrapper:not(:focus):placeholder-shown {
       color: var(--color-gray-400);
-    }
-  }
-  .\[\&\:not\(\:placeholder-shown\)\]\:text-black {
-    &:not(:placeholder-shown) {
-      color: var(--color-black);
-    }
-  }
-  .dark\:\[\&\:not\(\:placeholder-shown\)\]\:text-zinc-50 {
-    &:where(.dark, .dark *) {
-      &:not(:placeholder-shown) {
-        color: var(--color-zinc-50);
-      }
     }
   }
 }
