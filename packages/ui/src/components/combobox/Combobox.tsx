@@ -69,7 +69,7 @@ export function Combobox<T>({
                 "min-w-0 w-full px-4 py-1.5 rounded-lg text-sm",
                 "transition-all duration-200",
                 "bg-surface-light dark:bg-surface-dark",
-                "border dark:border-[#2E2E2D] border-gray-300",
+                "border dark:border-zinc-700 border-gray-300",
                 "focus:outline-none",
                 "focus:ring-2 focus:ring-gray-200",
                 "focus:ring-offset-2 focus:ring-offset-white",
@@ -77,6 +77,7 @@ export function Combobox<T>({
                 "bg-white hover:bg-gray-100",
                 "dark:bg-surface-dark dark:hover:bg-surface-dark/80",
                 "disabled:opacity-50 disabled:cursor-not-allowed",
+                "placeholder:text-gray-400",
                 { "border-red-400 focus:ring-red-200": Boolean(validationText) }
               )}
               onChange={(event) => setQuery(event.target.value)}
@@ -104,7 +105,7 @@ export function Combobox<T>({
                 "absolute z-10 mt-1",
                 "max-h-60 w-full overflow-auto",
                 "rounded-md bg-surface-light dark:bg-surface-dark",
-                "border dark:border-[#2E2E2D] border-gray-300 py-1 shadow-lg",
+                "border dark:border-zinc-700 border-gray-300 py-1 shadow-lg",
                 "focus:outline-hidden text-sm",
                 "origin-top transition duration-200 ease-out empty:invisible data-[closed]:scale-95 data-[closed]:opacity-0"
               )}

@@ -1,9 +1,9 @@
 "use client";
 
-import { Button, cn, PageContent } from "@repo/ui";
+import { Button, PageContent } from "@repo/ui";
 import { useRouter } from "next/navigation";
 
-export default function Error({ error }: { error: Error }) {
+export default function NotFound() {
   const router = useRouter();
 
   return (
@@ -29,13 +29,17 @@ export default function Error({ error }: { error: Error }) {
           </svg>
         </div>
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-          Oops! Something went wrong
+          Page Not Found
         </h1>
         <div className="p-4 rounded-lg border bg-red-50 border-red-200 dark:bg-red-200 dark:border-red-500">
-          <p className="text-red-600 dark:text-red-400 font-medium">
-            {error.message || "An unexpected error occurred"}
+          <p className="font-medium text-red-600 dark:text-red-400">
+            The page you&apos;re looking for doesn&apos;t exist or has been
+            moved.
           </p>
         </div>
+        <p className="text-gray-600 dark:text-gray-400">
+          Don&apos;t worry, you can go back to the home page and try again.
+        </p>
         <div className="flex gap-4 justify-center">
           <Button onClick={() => router.push("/")}>Back to home</Button>
         </div>

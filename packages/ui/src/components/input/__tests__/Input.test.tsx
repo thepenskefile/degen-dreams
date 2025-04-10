@@ -30,7 +30,7 @@ describe("Input", () => {
   it("renders with dark mode styles", () => {
     render(<Input />);
     const input = screen.getByRole("textbox");
-    expect(input).toHaveClass("dark:bg-surface-dark", "dark:border-[#2E2E2D]");
+    expect(input).toHaveClass("dark:bg-surface-dark", "dark:border-zinc-700");
   });
 
   it("forwards HTML attributes", () => {

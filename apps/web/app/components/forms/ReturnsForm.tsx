@@ -14,7 +14,18 @@ const schema = z.object({
     })
     .nullable()
     .refine((s) => s, "Required"),
-  date: z.string().min(1, { message: "Required" }),
+  date: z
+    .string()
+    .min(1, { message: "Required" })
+    .refine(
+      (date) => {
+        const selectedDate = new Date(date);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        return selectedDate <= today;
+      },
+      { message: "Date cannot be in the future" }
+    ),
   amount: z.string().min(1, { message: "Required" }),
 });
 
@@ -49,6 +60,7 @@ export function ReturnsForm({
           {...formMethods.register("date")}
           className="flex-1"
           type="date"
+          max={new Date().toISOString().split("T")[0]}
           validationText={formMethods.formState.errors.date?.message}
           placeholder="Date"
           aria-label="Date"

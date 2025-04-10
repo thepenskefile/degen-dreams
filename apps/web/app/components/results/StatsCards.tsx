@@ -17,19 +17,19 @@ export function StatsCards({
       <Card className="flex flex-col gap-4 w-full justify-between transition-all duration-200 hover:scale-105 hover:shadow-lg">
         <span className="text-zinc-500">If you sold at the top: </span>
         <span className="text-2xl md:text-3xl font-semibold">
-          ${maxValue.toLocaleString(undefined, { maximumFractionDigits: 2 })}
+          ${maxValue?.toLocaleString(undefined, { maximumFractionDigits: 2 })}
         </span>
       </Card>
       <Card className="flex flex-col gap-4 w-full justify-between transition-all duration-200 hover:scale-105 hover:shadow-lg">
         <span className="text-zinc-500">At the worst moment: </span>
         <span className="text-2xl md:text-3xl font-semibold">
-          {maxLossPercentage.toFixed(2)}%
+          {maxLossPercentage?.toFixed(2)}%
         </span>
       </Card>
       <Card className="flex flex-col gap-4 w-full justify-between transition-all duration-200 hover:scale-105 hover:shadow-lg">
         <span className="text-zinc-500">Return multiple: </span>
         <span className="text-2xl md:text-3xl font-semibold">
-          {returnMultiple.toFixed(2)}x
+          {returnMultiple?.toFixed(2)}x
         </span>
       </Card>
     </div>
