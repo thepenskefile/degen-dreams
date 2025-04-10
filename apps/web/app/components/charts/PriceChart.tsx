@@ -44,10 +44,6 @@ export function PriceChart({
   const firstPoint = React.useMemo(() => data[0], [data]);
   const lastPoint = React.useMemo(() => data[data.length - 1], [data]);
 
-  if (!firstPoint || !lastPoint) {
-    return null;
-  }
-
   return (
     <div className="w-full h-80 mt-4 p-4 rounded-lg border dark:border-[#2E2E2D] border-gray-300">
       <ResponsiveContainer width="100%" height="100%">
@@ -108,54 +104,57 @@ export function PriceChart({
               fill: isDark ? chartColor.dark : chartColor.light,
             }}
           />
+          {firstPoint && (
+            <ReferenceDot
+              x={firstPoint.date}
+              y={firstPoint.open}
+              r={4}
+              fill={isDark ? "#000000" : "#ffffff"}
+              stroke={isDark ? chartColor.dark : chartColor.light}
+              strokeWidth={2}
+            >
+              <Label
+                value="You bought here"
+                position="insideLeft"
+                offset={10}
+                fill="#FFD230"
+                fontSize={10}
+                fontWeight="bold"
+                className="uppercase"
+                style={{
+                  stroke: isDark ? "#000000" : "#ffffff",
+                  strokeWidth: "2px",
+                  paintOrder: "stroke fill",
+                }}
+              />
+            </ReferenceDot>
+          )}
 
-          <ReferenceDot
-            x={firstPoint.date}
-            y={firstPoint.open}
-            r={4}
-            fill={isDark ? "#000000" : "#ffffff"}
-            stroke={isDark ? chartColor.dark : chartColor.light}
-            strokeWidth={2}
-          >
-            <Label
-              value="You bought here"
-              position="insideLeft"
-              offset={10}
-              fill="#FFD230"
-              fontSize={10}
-              fontWeight="bold"
-              className="uppercase"
-              style={{
-                stroke: isDark ? "#000000" : "#ffffff",
-                strokeWidth: "2px",
-                paintOrder: "stroke fill",
-              }}
-            />
-          </ReferenceDot>
-
-          <ReferenceDot
-            x={lastPoint.date}
-            y={lastPoint.close}
-            r={4}
-            fill={isDark ? "#000000" : "#ffffff"}
-            stroke={isDark ? chartColor.dark : chartColor.light}
-            strokeWidth={2}
-          >
-            <Label
-              value="Today's price"
-              position="insideRight"
-              offset={10}
-              fill="#FFD230"
-              fontSize={10}
-              fontWeight="bold"
-              className="uppercase"
-              style={{
-                stroke: isDark ? "#000000" : "#ffffff",
-                strokeWidth: "2px",
-                paintOrder: "stroke fill",
-              }}
-            />
-          </ReferenceDot>
+          {lastPoint && (
+            <ReferenceDot
+              x={lastPoint.date}
+              y={lastPoint.close}
+              r={4}
+              fill={isDark ? "#000000" : "#ffffff"}
+              stroke={isDark ? chartColor.dark : chartColor.light}
+              strokeWidth={2}
+            >
+              <Label
+                value="Today's price"
+                position="insideRight"
+                offset={10}
+                fill="#FFD230"
+                fontSize={10}
+                fontWeight="bold"
+                className="uppercase"
+                style={{
+                  stroke: isDark ? "#000000" : "#ffffff",
+                  strokeWidth: "2px",
+                  paintOrder: "stroke fill",
+                }}
+              />
+            </ReferenceDot>
+          )}
 
           <ReferenceDot
             x={highestPoint.date}
