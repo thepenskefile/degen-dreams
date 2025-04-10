@@ -28,22 +28,6 @@ interface PriceChartProps {
   lowestPoint: PriceData;
 }
 
-const getLabelTextShadow = ({ isDark }: { isDark: boolean }) => {
-  return isDark
-    ? `
-    0 0 7px #fcd34d,
-    0 0 10px #fcd34d,
-    0 0 21px #f59e0b,
-    0 0 42px #f59e0b  
-    `
-    : `
-    0 0 7px #b45309,
-    0 0 10px #92400e,
-    0 0 21px #78350f,
-    0 0 42px #451a03
-    `;
-};
-
 export function PriceChart({
   data,
   isProfit,
@@ -82,14 +66,18 @@ export function PriceChart({
               />
             </linearGradient>
           </defs>
+
           <CartesianGrid
             horizontal={true}
             vertical={false}
             stroke={isDark ? "#2E2E2D" : "#e4e4e7"}
             strokeDasharray="0"
           />
+
           <XAxis dataKey="date" hide={true} />
+
           <YAxis hide={true} />
+
           <Tooltip
             contentStyle={{
               backgroundColor: isDark ? "#18181b" : "#ffffff",
@@ -106,6 +94,7 @@ export function PriceChart({
               }).format(value)
             }
           />
+
           <Area
             type="monotone"
             dataKey="close"
@@ -119,49 +108,55 @@ export function PriceChart({
               fill: isDark ? chartColor.dark : chartColor.light,
             }}
           />
-          {/* Entry point sign */}
+
           <ReferenceDot
             x={firstPoint.date}
             y={firstPoint.open}
-            r={6}
+            r={4}
             fill={isDark ? "#000000" : "#ffffff"}
             stroke={isDark ? chartColor.dark : chartColor.light}
             strokeWidth={2}
           >
             <Label
               value="You bought here"
-              position="insideTopLeft"
-              fill="#ffffff"
-              fontSize={12}
+              position="insideLeft"
+              offset={10}
+              fill="#FFD230"
+              fontSize={10}
               fontWeight="bold"
               className="uppercase"
               style={{
-                textShadow: getLabelTextShadow({ isDark }),
+                stroke: isDark ? "#000000" : "#ffffff",
+                strokeWidth: "2px",
+                paintOrder: "stroke fill",
               }}
             />
           </ReferenceDot>
-          {/* Current price sign */}
+
           <ReferenceDot
             x={lastPoint.date}
             y={lastPoint.close}
-            r={6}
+            r={4}
             fill={isDark ? "#000000" : "#ffffff"}
             stroke={isDark ? chartColor.dark : chartColor.light}
             strokeWidth={2}
           >
             <Label
               value="Today's price"
-              position="insideTopRight"
-              fill="#ffffff"
-              fontSize={12}
+              position="insideRight"
+              offset={10}
+              fill="#FFD230"
+              fontSize={10}
               fontWeight="bold"
               className="uppercase"
               style={{
-                textShadow: getLabelTextShadow({ isDark }),
+                stroke: isDark ? "#000000" : "#ffffff",
+                strokeWidth: "2px",
+                paintOrder: "stroke fill",
               }}
             />
           </ReferenceDot>
-          {/* Emoji at highest point */}
+
           <ReferenceDot
             x={highestPoint.date}
             y={highestPoint.high}
@@ -174,7 +169,7 @@ export function PriceChart({
               style: { fontSize: 28 },
             }}
           />
-          {/* Emoji at lowest point */}
+
           <ReferenceDot
             x={lowestPoint.date}
             y={lowestPoint.low}
