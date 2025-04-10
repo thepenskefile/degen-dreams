@@ -41,8 +41,8 @@ export function PriceChart({
     ? { light: "#14b8a6", dark: "#5eead4" } // Teal
     : { light: "#ef4444", dark: "#f87171" }; // Red
 
-  const firstPoint = data[0];
-  const lastPoint = data[data.length - 1];
+  const firstPoint = React.useMemo(() => data[0], [data]);
+  const lastPoint = React.useMemo(() => data[data.length - 1], [data]);
 
   if (!firstPoint || !lastPoint) {
     return null;
