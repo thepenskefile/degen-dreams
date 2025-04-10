@@ -46,7 +46,7 @@ export function PriceChart({
   const lastPoint = React.useMemo(() => data[data.length - 1], [data]);
 
   return (
-    <div className="w-full h-80 mt-4 p-4 rounded-lg border dark:border-[#2E2E2D] border-gray-300">
+    <div className="w-full h-80 mt-4 p-4 rounded-lg border dark:border-zinc-700 border-gray-300">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data}>
           <defs>

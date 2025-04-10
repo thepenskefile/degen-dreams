@@ -79,25 +79,35 @@ export async function calculateInvestmentReturns(
     throw new Error("No price data available for the specified time period");
   }
 
-  const firstDataPoint = filteredData[0];
+  // Find the first data point with non-zero price
+  const firstValidDataPoint = filteredData.find(
+    (item) => item.open > 0 && item.high > 0 && item.low > 0 && item.close > 0
+  );
+
+  if (!firstValidDataPoint) {
+    throw new Error(
+      "No valid price data available for the specified time period"
+    );
+  }
+
   const lastDataPoint = filteredData[filteredData.length - 1];
 
-  if (!firstDataPoint || !lastDataPoint) {
+  if (!lastDataPoint) {
     throw new Error("Invalid price data");
   }
 
   const highestPoint = filteredData.reduce(
     (max: PriceData, point: PriceData) => (point.high > max.high ? point : max),
-    firstDataPoint
+    firstValidDataPoint
   );
 
   const lowestPoint = filteredData.reduce(
     (min: PriceData, point: PriceData) => (point.low < min.low ? point : min),
-    firstDataPoint
+    firstValidDataPoint
   );
 
   const initialInvestment = Number(amount);
-  const firstPrice = firstDataPoint.open;
+  const firstPrice = firstValidDataPoint.open;
   const lastPrice = lastDataPoint.close;
   const highestPrice = highestPoint.high;
   const lowestPrice = lowestPoint.low;

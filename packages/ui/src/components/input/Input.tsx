@@ -24,7 +24,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           })}
           className={cn(
             "min-w-0 w-full px-4 py-1.5 rounded-lg text-sm transition-all duration-200",
-            "bg-surface-light dark:bg-surface-dark border dark:border-[#2E2E2D] border-gray-300",
+            "bg-surface-light dark:bg-surface-dark border dark:border-zinc-700 border-gray-300",
             "focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-2 focus:ring-offset-white",
             "dark:focus:ring-offset-surface-dark",
             "bg-white hover:bg-gray-100",

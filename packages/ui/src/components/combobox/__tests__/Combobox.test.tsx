@@ -86,7 +86,7 @@ describe("Combobox", () => {
   it("renders with dark mode styles", () => {
     render(<Combobox options={mockOptions} />);
     const input = screen.getByRole("combobox");
-    expect(input).toHaveClass("dark:bg-surface-dark", "dark:border-[#2E2E2D]");
+    expect(input).toHaveClass("dark:bg-surface-dark", "dark:border-zinc-700");
   });
 
   it("displays selected value", () => {
