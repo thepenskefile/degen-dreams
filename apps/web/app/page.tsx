@@ -113,6 +113,8 @@ export default function Home() {
               profitLoss: submitFormMutation.data.profitLoss,
               maxValue: submitFormMutation.data.maxValue,
               priceData: submitFormMutation.data.priceData,
+              highestPoint: submitFormMutation.data.highestPoint,
+              lowestPoint: submitFormMutation.data.lowestPoint,
             }}
           />
 

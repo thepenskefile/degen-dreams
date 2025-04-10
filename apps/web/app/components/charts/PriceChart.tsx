@@ -7,6 +7,8 @@ import {
   Tooltip,
   ResponsiveContainer,
   CartesianGrid,
+  ReferenceDot,
+  Label,
 } from "recharts";
 import { useTheme } from "next-themes";
 
@@ -22,15 +24,29 @@ interface PriceData {
 interface PriceChartProps {
   data: PriceData[];
   isProfit: boolean;
+  highestPoint: PriceData;
+  lowestPoint: PriceData;
 }
 
-export function PriceChart({ data, isProfit }: PriceChartProps) {
+export function PriceChart({
+  data,
+  isProfit,
+  highestPoint,
+  lowestPoint,
+}: PriceChartProps) {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
   const chartColor = isProfit
     ? { light: "#14b8a6", dark: "#5eead4" } // Teal
     : { light: "#ef4444", dark: "#f87171" }; // Red
+
+  const firstPoint = data[0];
+  const lastPoint = data[data.length - 1];
+
+  if (!firstPoint || !lastPoint) {
+    return null;
+  }
 
   return (
     <div className="w-full h-[300px] mt-4 p-4 rounded-lg border dark:border-[#2E2E2D] border-gray-300">
@@ -85,6 +101,62 @@ export function PriceChart({ data, isProfit }: PriceChartProps) {
             activeDot={{
               r: 4,
               fill: isDark ? chartColor.dark : chartColor.light,
+            }}
+          />
+          {/* Entry point sign */}
+          <ReferenceDot
+            x={firstPoint.date}
+            y={firstPoint.open}
+            r={4}
+            fill={isDark ? chartColor.dark : chartColor.light}
+          >
+            <Label
+              value="You bought here"
+              position="insideLeft"
+              fill={isDark ? "#e4e4e7" : "#52525b"}
+              fontSize={12}
+              offset={10}
+            />
+          </ReferenceDot>
+          {/* Current price sign */}
+          <ReferenceDot
+            x={lastPoint.date}
+            y={lastPoint.close}
+            r={4}
+            fill={isDark ? chartColor.dark : chartColor.light}
+          >
+            <Label
+              value="Today's price"
+              position="insideRight"
+              fill={isDark ? "#e4e4e7" : "#52525b"}
+              fontSize={12}
+              offset={10}
+            />
+          </ReferenceDot>
+          {/* Emoji at highest point */}
+          <ReferenceDot
+            x={highestPoint.date}
+            y={highestPoint.high}
+            r={20}
+            fill="transparent"
+            stroke="none"
+            label={{
+              value: "🤑",
+              position: "center",
+              style: { fontSize: 28 },
+            }}
+          />
+          {/* Emoji at lowest point */}
+          <ReferenceDot
+            x={lowestPoint.date}
+            y={lowestPoint.low}
+            r={20}
+            fill="transparent"
+            stroke="none"
+            label={{
+              value: "😱",
+              position: "center",
+              style: { fontSize: 28 },
             }}
           />
         </AreaChart>
