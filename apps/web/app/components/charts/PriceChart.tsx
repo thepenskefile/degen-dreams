@@ -28,6 +28,22 @@ interface PriceChartProps {
   lowestPoint: PriceData;
 }
 
+const getLabelTextShadow = ({ isDark }: { isDark: boolean }) => {
+  return isDark
+    ? `
+    0 0 7px #fcd34d,
+    0 0 10px #fcd34d,
+    0 0 21px #f59e0b,
+    0 0 42px #f59e0b  
+    `
+    : `
+    0 0 7px #b45309,
+    0 0 10px #92400e,
+    0 0 21px #78350f,
+    0 0 42px #451a03
+    `;
+};
+
 export function PriceChart({
   data,
   isProfit,
@@ -49,7 +65,7 @@ export function PriceChart({
   }
 
   return (
-    <div className="w-full h-[300px] mt-4 p-4 rounded-lg border dark:border-[#2E2E2D] border-gray-300">
+    <div className="w-full h-80 mt-4 p-4 rounded-lg border dark:border-[#2E2E2D] border-gray-300">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data}>
           <defs>
@@ -120,19 +136,7 @@ export function PriceChart({
               fontWeight="bold"
               className="uppercase"
               style={{
-                textShadow: isDark
-                  ? `
-                  0 0 7px #fcd34d,
-                  0 0 10px #fcd34d,
-                  0 0 21px #f59e0b,
-                  0 0 42px #f59e0b
-                `
-                  : `
-                  0 0 7px #b45309,
-                  0 0 10px #92400e,
-                  0 0 21px #78350f,
-                  0 0 42px #451a03
-                `,
+                textShadow: getLabelTextShadow({ isDark }),
               }}
             />
           </ReferenceDot>
@@ -153,19 +157,7 @@ export function PriceChart({
               fontWeight="bold"
               className="uppercase"
               style={{
-                textShadow: isDark
-                  ? `
-                  0 0 7px #fcd34d,
-                  0 0 10px #fcd34d,
-                  0 0 21px #f59e0b,
-                  0 0 42px #f59e0b
-                `
-                  : `
-                  0 0 7px #b45309,
-                  0 0 10px #92400e,
-                  0 0 21px #78350f,
-                  0 0 42px #451a03
-                `,
+                textShadow: getLabelTextShadow({ isDark }),
               }}
             />
           </ReferenceDot>

@@ -86,7 +86,6 @@ export async function calculateInvestmentReturns(
     throw new Error("Invalid price data");
   }
 
-  // Find highest and lowest points
   const highestPoint = filteredData.reduce(
     (max: PriceData, point: PriceData) => (point.high > max.high ? point : max),
     firstDataPoint
