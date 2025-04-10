@@ -10,6 +10,9 @@ export const CRYPTOCURRENCY_LIST = [
   { key: "DOT", label: "Polkadot", value: "DOT" },
   { key: "DOGE", label: "Dogecoin", value: "DOGE" },
   { key: "SHIB", label: "Shiba Inu", value: "SHIB" },
+  { key: "CRO", label: "Crypto.com Coin", value: "CRO" },
+  { key: "LTC", label: "Litecoin", value: "LTC" },
+  { key: "TRX", label: "TRON", value: "TRX" },
 
   // Layer 1 Blockchains
   { key: "SUI", label: "Sui", value: "SUI" },
@@ -22,6 +25,8 @@ export const CRYPTOCURRENCY_LIST = [
   { key: "OP", label: "Optimism", value: "OP" },
   { key: "FTM", label: "Fantom", value: "FTM" },
   { key: "ONE", label: "Harmony", value: "ONE" },
+  { key: "KAS", label: "Kaspa", value: "KAS" },
+  { key: "INJ", label: "Injective", value: "INJ" },
 
   // DeFi Tokens
   { key: "UNI", label: "Uniswap", value: "UNI" },
@@ -34,6 +39,8 @@ export const CRYPTOCURRENCY_LIST = [
   { key: "YFI", label: "Yearn Finance", value: "YFI" },
   { key: "SUSHI", label: "SushiSwap", value: "SUSHI" },
   { key: "CAKE", label: "PancakeSwap", value: "CAKE" },
+  { key: "GMX", label: "GMX", value: "GMX" },
+  { key: "RDNT", label: "Radiant Capital", value: "RDNT" },
 
   // Gaming & Metaverse
   { key: "SAND", label: "The Sandbox", value: "SAND" },
@@ -46,6 +53,8 @@ export const CRYPTOCURRENCY_LIST = [
   { key: "MAGIC", label: "Magic", value: "MAGIC" },
   { key: "YGG", label: "Yield Guild Games", value: "YGG" },
   { key: "MC", label: "Merit Circle", value: "MC" },
+  { key: "BIGTIME", label: "Big Time", value: "BIGTIME" },
+  { key: "PIXEL", label: "Pixels", value: "PIXEL" },
 
   // AI & Big Data
   { key: "AGIX", label: "SingularityNET", value: "AGIX" },
@@ -58,6 +67,8 @@ export const CRYPTOCURRENCY_LIST = [
   { key: "AKT", label: "Akash Network", value: "AKT" },
   { key: "HNT", label: "Helium", value: "HNT" },
   { key: "IOTX", label: "IoTeX", value: "IOTX" },
+  { key: "TAO", label: "Bittensor", value: "TAO" },
+  { key: "WLD", label: "Worldcoin", value: "WLD" },
 
   // Privacy & Security
   { key: "XMR", label: "Monero", value: "XMR" },
@@ -70,4 +81,6 @@ export const CRYPTOCURRENCY_LIST = [
   { key: "ARRR", label: "Pirate Chain", value: "ARRR" },
   { key: "DCR", label: "Decred", value: "DCR" },
   { key: "XVG", label: "Verge", value: "XVG" },
+  { key: "DASH", label: "Dash", value: "DASH" },
+  { key: "PIVX", label: "PIVX", value: "PIVX" },
 ];
