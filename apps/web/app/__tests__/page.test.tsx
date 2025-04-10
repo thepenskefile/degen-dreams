@@ -8,12 +8,6 @@ import userEvent from "@testing-library/user-event";
 import { CalculateReturnsResult } from "../services/price-service";
 import { buildCalculateReturnsResult } from "../test/fixtures";
 
-vi.mock("next/navigation", () => ({
-  useSearchParams: vi.fn(),
-  useRouter: vi.fn(),
-  usePathname: vi.fn(),
-}));
-
 const user = userEvent.setup();
 
 function mockSuccessfulResponse({
