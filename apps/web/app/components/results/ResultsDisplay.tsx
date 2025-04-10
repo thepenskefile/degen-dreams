@@ -16,7 +16,6 @@ interface ResultsDisplayProps {
 }
 
 export function ResultsDisplay({ data }: ResultsDisplayProps) {
-  console.log("BLAH DATA: ", data);
   return (
     <div className="mt-8 space-y-4">
       <div className="flex flex-col gap-1">
