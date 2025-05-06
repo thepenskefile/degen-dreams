@@ -41,6 +41,7 @@ export const CRYPTOCURRENCY_LIST = [
   { key: "CAKE", label: "PancakeSwap", value: "CAKE" },
   { key: "GMX", label: "GMX", value: "GMX" },
   { key: "RDNT", label: "Radiant Capital", value: "RDNT" },
+  { key: "VVS", label: "VVS Finance", value: "VVS" },
 
   // Gaming & Metaverse
   { key: "SAND", label: "The Sandbox", value: "SAND" },
@@ -83,4 +84,19 @@ export const CRYPTOCURRENCY_LIST = [
   { key: "XVG", label: "Verge", value: "XVG" },
   { key: "DASH", label: "Dash", value: "DASH" },
   { key: "PIVX", label: "PIVX", value: "PIVX" },
+
+  // Meme Coins
+  { key: "PEPE", label: "Pepe", value: "PEPE" },
+  { key: "FLOKI", label: "Floki", value: "FLOKI" },
+  { key: "BONK", label: "Bonk", value: "BONK" },
+
+  // Infrastructure & Interoperability
+  { key: "CELO", label: "Celo", value: "CELO" },
+  { key: "KAVA", label: "Kava", value: "KAVA" },
+  { key: "JUNO", label: "Juno", value: "JUNO" },
+  { key: "OSMO", label: "Osmosis", value: "OSMO" },
+
+  // Real World Assets
+  { key: "GHO", label: "Aave GHO", value: "GHO" },
+  { key: "FRAX", label: "Frax", value: "FRAX" },
 ];
